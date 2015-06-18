@@ -1,4 +1,6 @@
 #Reading in all the required data
+#This assumes data has been unzipped to current working directory 
+#and the file structure remains unedited
 X_test <- read.table('./UCI HAR Dataset/test/X_test.txt')
 Y_test <- read.table('./UCI HAR Dataset/test/y_test.txt')
 subject_test <- read.table('./UCI HAR Dataset/test/subject_test.txt')
