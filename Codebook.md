@@ -35,6 +35,7 @@ fBodyBodyAccJerkMag-mean()
 fBodyBodyGyroMag-mean()
 fBodyBodyGyroJerkMag-mean()
 
+#Measurements with Standard Deviation
 tBodyAcc-std()-X
 tBodyAcc-std()-Y
 tBodyAcc-std()-Z
