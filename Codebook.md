@@ -1,4 +1,4 @@
-<h1>Codebook for TidyData</h1>
+#Codebook for TidyData
 
 #Measurements with Mean
 tBodyAcc-mean()-X
@@ -35,7 +35,7 @@ fBodyBodyAccJerkMag-mean()
 fBodyBodyGyroMag-mean()
 fBodyBodyGyroJerkMag-mean()
 
-tBodyAcc-std()-X
+tBodyAcc-std()-X
 tBodyAcc-std()-Y
 tBodyAcc-std()-Z
 tGravityAcc-std()-X
