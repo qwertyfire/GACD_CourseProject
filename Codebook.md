@@ -1,6 +1,19 @@
 #Codebook for TidyData
 
-#Measurements with Mean
+Subject
+	Integer code representing and individual subject whome the measurements were taken from
+		1:30
+
+Activity
+	Descriptive Values representing the type of activity being performed
+		WALKING
+		WALKING_UPSTAIRS
+		WALKING_DOWNSTAIRS
+		SITTING
+		STANDING
+		LAYING
+
+#Mean of measurements relating to Mean. NB: Measurements names correspond to those described in UCI HAR Dataset.
 * tBodyAcc-mean()-X
 * tBodyAcc-mean()-Y
 * tBodyAcc-mean()-Z
@@ -35,7 +48,7 @@
 * fBodyBodyGyroMag-mean()
 * fBodyBodyGyroJerkMag-mean()
 
-#Measurements with Standard Deviation
+#Mean of measurements relating to Standard Deviation. NB: Measurement names correspond to those described in UCI HAR Dataset.
 * tBodyAcc-std()-X
 * tBodyAcc-std()-Y
 * tBodyAcc-std()-Z
