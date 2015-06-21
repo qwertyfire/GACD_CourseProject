@@ -7,11 +7,11 @@ Integer code representing and individual subject whome the measurements were tak
 Activity<br>
 Descriptive Values representing the type of activity being performed<br>
     WALKING<br>
-WALKING_UPSTAIRS<br>
+>WALKING_UPSTAIRS<br>
 WALKING_DOWNSTAIRS<br>
 SITTING<br>
 STANDING<br>
-LAYING<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LAYING<br>
 
 #Mean of measurements relating to Mean. NB: Measurements names correspond to those described in UCI HAR Dataset.
 * tBodyAcc-mean()-X
