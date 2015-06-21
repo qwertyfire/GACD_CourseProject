@@ -81,9 +81,21 @@ remove(subjectData,yData,xData)
 theNames <- names(allData)
 extractedMeanColumnNames <- theNames[grep("mean()", theNames,fixed = TRUE)]
 extractedSTDColumnNames <- theNames[grep("std()", theNames,fixed = TRUE)]
-columnNamesToSubset <- c("Subject", "Activity",extractedSTDColumnNames,extractedMeanColumnNames)
+columnNamesToSubset <- c("Subject", "Activity",extractedMeanColumnNames,extractedSTDColumnNames)
 #So P is the dataset without only the mean and standard deviation measurements
 p <- allData[columnNamesToSubset]
+#Removes the () fromt the names
+names(p) = gsub("()","",names(p) , fixed = TRUE)
+names(p) = gsub("-",".",names(p) , fixed = TRUE)
+
+#Starting to create a tidy dataset.
+library(dplyr)
+test<-summarise(group_by(p, Subject, Activity), tBodyAcc.mean.X = mean(tBodyAcc.mean.X))
+
+tidyData <- p %>% group_by(Subject, Activity) %>% summarise_each(funs(mean))
+
+
+
 
 # Selects only data that realates to subject 1
 subject1 <- p[(p$Subject == 1),]
