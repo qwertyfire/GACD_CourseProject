@@ -19,5 +19,6 @@
 
 ##Codebook.md
 This file contains descriptions about variables in the Tidy Dataset created by the run_analysis.R script. 
+
 **Assumptions**
-*The codebook assumes you are familiar with *Human Activity Recognition Using Smartphones Data Set*. Specifically that you have read and understand the documentation files that come with the downloaded dataset. 
+* The codebook assumes you are familiar with *Human Activity Recognition Using Smartphones Data Set*. Specifically that you have read and understand the documentation files that come with the downloaded dataset. 
