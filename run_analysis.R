@@ -106,5 +106,5 @@ table(unlist(subject1$Activity))
 laying <- subject1[(subject1$Activity == "LAYING"),]
 
 #This lets you see the number of observations for each subject
-table(unlist(p$Subject))
-
+table(unlist(tidyData$Subject))
+table(unlist(tidyData$Activity))
