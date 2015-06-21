@@ -84,7 +84,7 @@ extractedSTDColumnNames <- theNames[grep("std()", theNames,fixed = TRUE)]
 columnNamesToSubset <- c("Subject", "Activity",extractedMeanColumnNames,extractedSTDColumnNames)
 #So P is the dataset without only the mean and standard deviation measurements
 p <- allData[columnNamesToSubset]
-#Removes the () fromt the names
+#Removes the "()" and "-" from the names
 names(p) = gsub("()","",names(p) , fixed = TRUE)
 names(p) = gsub("-",".",names(p) , fixed = TRUE)
 
@@ -108,3 +108,9 @@ laying <- subject1[(subject1$Activity == "LAYING"),]
 #This lets you see the number of observations for each subject
 table(unlist(tidyData$Subject))
 table(unlist(tidyData$Activity))
+
+
+
+
+
+##########################TESTING SOMETHING DIFFERENT######################################
