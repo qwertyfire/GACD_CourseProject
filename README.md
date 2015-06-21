@@ -9,7 +9,7 @@
 * dplyr : http://cran.r-project.org/web/packages/dplyr/index.html</li>
 
 **Assumptions**
-*This script uses the *Human Activity Recognition Using Smartphones Data Set*, and assumes that is the dataset it will be used on. Information about this dataset can be found here: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+* This script uses the *Human Activity Recognition Using Smartphones Data Set*, and assumes that is the dataset it will be used on. Information about this dataset can be found here: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 **Instructions**
 1)Download dataset from here: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
