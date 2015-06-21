@@ -1,17 +1,17 @@
 #Codebook for TidyData
 
-Subject
-	Integer code representing and individual subject whome the measurements were taken from
+Subject\s\s
+	Integer code representing and individual subject whome the measurements were taken from\s\s
 		1:30
 
-Activity
-	Descriptive Values representing the type of activity being performed
-		WALKING
-		WALKING_UPSTAIRS
-		WALKING_DOWNSTAIRS
-		SITTING
-		STANDING
-		LAYING
+Activity\s\s
+&lt;p&gt;Descriptive Values representing the type of activity being performed\s\s&lt;p&gt;
+	&lt;p&gt;WALKING\s\s&lt;p&gt;
+	&lt;p&gt;WALKING_UPSTAIRS\s\s&lt;p&gt;
+	&lt;p&gt;WALKING_DOWNSTAIRS\s\s&lt;p&gt;
+	&lt;p&gt;SITTING\s\s&lt;p&gt;
+	&lt;p&gt;STANDING\s\s&lt;p&gt;
+	&lt;p&gt;LAYING\s\s&lt;p&gt;
 
 #Mean of measurements relating to Mean. NB: Measurements names correspond to those described in UCI HAR Dataset.
 * tBodyAcc-mean()-X
