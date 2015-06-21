@@ -1,1 +1,1 @@
-<h1>Codebook for TidyData</.h1>
+<h1>Codebook for TidyData</h1>

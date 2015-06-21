@@ -94,23 +94,3 @@ test<-summarise(group_by(p, Subject, Activity), tBodyAcc.mean.X = mean(tBodyAcc.
 
 tidyData <- p %>% group_by(Subject, Activity) %>% summarise_each(funs(mean))
 
-
-
-
-# Selects only data that realates to subject 1
-subject1 <- p[(p$Subject == 1),]
-#This lets you see the number of observations for subject 1 separated out into the different activities. 
-table(unlist(subject1$Activity))
-
-#Selects only the data from subject one where the activitiy is Laying
-laying <- subject1[(subject1$Activity == "LAYING"),]
-
-#This lets you see the number of observations for each subject
-table(unlist(tidyData$Subject))
-table(unlist(tidyData$Activity))
-
-
-
-
-
-##########################TESTING SOMETHING DIFFERENT######################################
