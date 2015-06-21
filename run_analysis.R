@@ -2,26 +2,38 @@
 #This assumes data has been unzipped to current working directory 
 #and the file structure remains unedited
 
-#Read in X_Test and X_Train data
+#Load the dply library - this is a required package for this script to run
+library(dplyr)
+
+#Read in data from X_Test.txt and X_Train.txt 
 x_test <- read.table('./UCI HAR Dataset/test/X_test.txt')
 x_train <- read.table('./UCI HAR Dataset/train/X_train.txt')
+
+#Combine data from x_test and x_train into a single DF
 xData <- rbind(x_train,x_test)
-#Cleaning up the evnironment
+
+#Since we no longer need x_test and x_train, here we remove them from the evnironment
 remove(x_test, x_train)
 
-
+#Read in data from y_Test.txt and y_Train.txt 
 y_test <- read.table('./UCI HAR Dataset/test/y_test.txt')
 y_train <- read.table('./UCI HAR Dataset/train/y_train.txt')
+
+#Combine data from y_test and y_train into a single DF
 yData <- rbind(y_train,y_test)
-#Cleaning up the environment
+#As earlier - here we're cleaning up the environment
 remove(y_test,y_train)
 
+#Read in data from subject_Test.txt and subject_Train.txt
 subject_test <- read.table('./UCI HAR Dataset/test/subject_test.txt')
 subject_train <- read.table('./UCI HAR Dataset/train/subject_train.txt')
+
+#Combine data from subject_test and subject_train into a single DF
 subjectData <- rbind(subject_train,subject_test)
 #Cleaning up the environment
 remove(subject_test,subject_train)
 
+#
 features <- read.table('./UCI HAR Dataset/features.txt', stringsAsFactors = FALSE)
 columnNames <- features$V2
 #Cleaning up the environment
@@ -43,54 +55,19 @@ allData<- cbind(subjectData,yData,xData)
 #Cleaning up the environment
 remove(subjectData,yData,xData)
 
-#Measurements with Mean
-# 1 tBodyAcc-mean()-X
-# 2 tBodyAcc-mean()-Y
-# 3 tBodyAcc-mean()-Z
-# 41 tGravityAcc-mean()-X
-# 42 tGravityAcc-mean()-Y
-# 43 tGravityAcc-mean()-Z
-# 81 tBodyAccJerk-mean()-X
-# 82 tBodyAccJerk-mean()-Y
-# 83 tBodyAccJerk-mean()-Z
-# 121 tBodyGyro-mean()-X
-# 122 tBodyGyro-mean()-Y
-# 123 tBodyGyro-mean()-Z
-# 161 tBodyGyroJerk-mean()-X
-# 162 tBodyGyroJerk-mean()-Y
-# 163 tBodyGyroJerk-mean()-Z
-# 201 tBodyAccMag-mean()
-# 214 tGravityAccMag-mean()
-# 227 tBodyAccJerkMag-mean()
-# 240 tBodyGyroMag-mean()
-# 253 tBodyGyroJerkMag-mean()
-# 266 fBodyAcc-mean()-X
-# 267 fBodyAcc-mean()-Y
-# 268 fBodyAcc-mean()-Z
-# 345 fBodyAccJerk-mean()-X
-# 346 fBodyAccJerk-mean()-Y
-# 347 fBodyAccJerk-mean()-Z
-# 424 fBodyGyro-mean()-X
-# 425 fBodyGyro-mean()-Y
-# 426 fBodyGyro-mean()-Z
-# 503 fBodyAccMag-mean()
-# 516 fBodyBodyAccJerkMag-mean()
-# 529 fBodyBodyGyroMag-mean()
-# 542 fBodyBodyGyroJerkMag-mean()
-
 theNames <- names(allData)
 extractedMeanColumnNames <- theNames[grep("mean()", theNames,fixed = TRUE)]
 extractedSTDColumnNames <- theNames[grep("std()", theNames,fixed = TRUE)]
 columnNamesToSubset <- c("Subject", "Activity",extractedMeanColumnNames,extractedSTDColumnNames)
 #So P is the dataset without only the mean and standard deviation measurements
-p <- allData[columnNamesToSubset]
-#Removes the "()" and "-" from the names
-names(p) = gsub("()","",names(p) , fixed = TRUE)
-names(p) = gsub("-",".",names(p) , fixed = TRUE)
+STD_MeanData <- allData[columnNamesToSubset]
 
-#Starting to create a tidy dataset.
-library(dplyr)
-test<-summarise(group_by(p, Subject, Activity), tBodyAcc.mean.X = mean(tBodyAcc.mean.X))
 
-tidyData <- p %>% group_by(Subject, Activity) %>% summarise_each(funs(mean))
+#Creates the TidyDataset
+tidyData <- STD_MeanData %>% group_by(Subject, Activity) %>% summarise_each(funs(mean))
 
+#Write the tidyData set to an output text file called 'TidyData.txt'
+write.table(tidyData,file = "TidyData.txt", row.name=FALSE)
+
+#Clear the environment
+rm(list = ls())
